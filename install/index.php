@@ -357,13 +357,10 @@ switch($act){
 							echo json_encode(array('code'=>1,'msg'=>'数据库错误：' . $msg[2] . end($sql)));exit;
 						} 
 					}
-			   
-				
 			   }catch (PDOException $e){
 			   		echo json_encode(array('code'=>1,'msg'=>$e->getMessage()));
 			   		exit;
 			   }
-			   
 		    }
 			if($_POST['admin_pass']!='' && $_POST['admin_name']!=''){
 				$sql="UPDATE `next_level` SET `name`='".$_POST['admin_name']."',`pass`='".md5(md5($_POST['admin_pass']).'YF')."' , `regtime` = '".time()."' , `logintime` = ".time()."   WHERE id=1";

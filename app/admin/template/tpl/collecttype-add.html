@@ -9,46 +9,35 @@
   
   <body>
     <div class="x-body">
-        <form class="layui-form layui-form-pane">
+      <form class="layui-form layui-form-pane">
 		
-		<div class="layui-tab">
-			  <ul class="layui-tab-title">
-				<li class="layui-this">{fun NEXTLANG('基本信息')}</li>
-				
-			  </ul>
-			  <div class="layui-tab-content">
-				<div class="layui-tab-item layui-show">
-				
-	
-			<div class="layui-form-item">
-              <label for="name" class="layui-form-label">
-                  <span class="x-red">*</span>{fun NEXTLANG('分类名')}
-              </label>
-              <div class="layui-input-inline">
-                  <input type="text" id="name" name="name" required="" lay-verify="required"
-                  autocomplete="off" class="layui-input">
+        <div class="layui-tab">
+          <ul class="layui-tab-title">
+            <li class="layui-this">{fun NEXTLANG('基本信息')}</li>
+          </ul>
+          <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+              <div class="layui-form-item">
+                <label for="name" class="layui-form-label">
+                    <span class="x-red">*</span>{fun NEXTLANG('分类名')}
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="name" name="name" required="" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">
+                    
+                </div>
               </div>
-              <div class="layui-form-mid layui-word-aux">
-                  
-              </div>
-			</div>
-		  
-	
-				</div>
-				
-			  </div>
-		</div>
-				
-		
-		
-		
-          <input type="hidden" id="go" name="go" value="1">
-          <div class="layui-form-item"  style="text-align:center;">
-              
-              <button  class="layui-btn" lay-filter="add" lay-submit="">
-                  {fun NEXTLANG('添加')}
-              </button>
-          </div>
+				    </div>
+			    </div>
+		    </div>
+        <input type="hidden" id="go" name="go" value="1">
+        <div class="layui-form-item"  style="text-align:center;">
+            
+            <button  class="layui-btn" lay-filter="add" lay-submit="">
+                {fun NEXTLANG('添加')}
+            </button>
+        </div>
       </form>
     </div>
     <script>
@@ -90,10 +79,6 @@
                 return false;
           });
 		  
-		  
-			
-          
-          
         });
     </script>
     

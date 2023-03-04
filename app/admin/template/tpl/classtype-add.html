@@ -129,8 +129,6 @@
                     </div>
                 </div>
 				 
-				
-			
 				</div>
 				<div class="layui-tab-item">
 				
@@ -237,19 +235,18 @@
               </div>
           </div>
 		   <div class="layui-form-item" pane>
-					<label for="ishome" class="layui-form-label">
-						<span class="x-red"></span>{fun NEXTLANG('发布显示')}
-					</label>
-					<div class="layui-input-block">
-						<input type="radio" name="ishome" value="0" title="{fun NEXTLANG('不显示')}" >
-						<input type="radio" name="ishome" value="1" title="{fun NEXTLANG('显示')}" checked>
-					</div>
-					<div class="layui-form-mid layui-word-aux">
-					 {fun NEXTLANG('勾选后，前台会员发布会显示该栏目')}
-					</div>
-					
+				<label for="ishome" class="layui-form-label">
+					<span class="x-red"></span>{fun NEXTLANG('发布显示')}
+				</label>
+				<div class="layui-input-block">
+					<input type="radio" name="ishome" value="0" title="{fun NEXTLANG('不显示')}" >
+					<input type="radio" name="ishome" value="1" title="{fun NEXTLANG('显示')}" checked>
+				</div>
+				<div class="layui-form-mid layui-word-aux">
+					{fun NEXTLANG('勾选后，前台会员发布会显示该栏目')}
+				</div>
 			  </div>
-		  <div class="layui-form-item" pane>
+		  	  	<div class="layui-form-item" pane>
                     <label for="isshow" class="layui-form-label">
                         <span class="x-red"></span>{fun NEXTLANG('导航显示')}
                     </label>
@@ -257,36 +254,34 @@
                         <input type="radio" name="isshow" value="0" title="{fun NEXTLANG('隐藏')}">
 						<input type="radio" name="isshow" value="1" title="{fun NEXTLANG('显示')}" checked>
                     </div>
-			</div>
-			<div class="layui-form-item" pane>
-				<label for="iscover" class="layui-form-label">
-					<span class="x-red"></span>{fun NEXTLANG('模板覆盖')}
-				</label>
-				<div class="layui-input-block">
-					<input type="radio" name="iscover" value="1" title="{fun NEXTLANG('覆盖')}">
-					<input type="radio" name="iscover" value="0" title="{fun NEXTLANG('不覆盖')}" checked >
 				</div>
-				<div class="layui-form-mid layui-word-aux">
-                 {fun NEXTLANG('模板覆盖指：显示数量及使用模板文件下级一样，减少同步操作。如果上级勾选了覆盖下级，那么下级默认调用上级填写的模板。')}
-                </div>
-				
-			</div>
-			
-			<div class="layui-form-item">
-				<label for="gid" class="layui-form-label">
-					<span class="x-red"></span>{fun NEXTLANG('访问限制')}
-				</label>
-				<div class="layui-input-inline">
+				<div class="layui-form-item" pane>
+					<label for="iscover" class="layui-form-label">
+						<span class="x-red"></span>{fun NEXTLANG('模板覆盖')}
+					</label>
+					<div class="layui-input-block">
+						<input type="radio" name="iscover" value="1" title="{fun NEXTLANG('覆盖')}">
+						<input type="radio" name="iscover" value="0" title="{fun NEXTLANG('不覆盖')}" checked >
+					</div>
+					<div class="layui-form-mid layui-word-aux">
+					{fun NEXTLANG('模板覆盖指：显示数量及使用模板文件下级一样，减少同步操作。如果上级勾选了覆盖下级，那么下级默认调用上级填写的模板。')}
+					</div>
 					
-				   {loop table="member_group" as="v"}
-				   <input type="checkbox" value="{$v['id']}" name="gids[]" title="{$v['name']}">
-				   {/loop}
-				
-				  
 				</div>
-			</div>
+			
+				<div class="layui-form-item">
+					<label for="gid" class="layui-form-label">
+						<span class="x-red"></span>{fun NEXTLANG('访问限制')}
+					</label>
+					<div class="layui-input-inline">
+						
+					{loop table="member_group" as="v"}
+					<input type="checkbox" value="{$v['id']}" name="gids[]" title="{$v['name']}">
+					{/loop}
+					</div>
+				</div>
 				
-			 <div class="layui-form-item" pane>
+			 	<div class="layui-form-item" pane>
                     <label for="isclose" class="layui-form-label">
                         <span class="x-red"></span>{fun NEXTLANG('是否关闭')}
                     </label>
@@ -297,18 +292,14 @@
 					<div class="layui-form-mid layui-word-aux">
 					 {fun NEXTLANG('栏目关闭后，前台不显示，也无法访问！')}
 					</div>
-			</div>	
+				</div>	
 				
 				</div>
 			  </div>
-		</div>
-				
-		
-		
-		
+			</div>
+
           <input type="hidden" id="go" name="go" value="1">
           <div class="layui-form-item" style="text-align:center;">
-              
               <button  class="layui-btn" lay-filter="add" lay-submit="">
                   {fun NEXTLANG('增加')}
               </button>
@@ -318,11 +309,9 @@
     <script>
 	{include="fields"}
 		$(function() {
-			 
 			  get_fields({$pid});
 			  get_fields_ext({$pid});
-
-			})
+		})
 		function deleteImage(elm){
 			$(elm).prev().attr("src", "{__Tpl_style__}/style/images/nopic.jpg");
 			$('#litpic').val("");
@@ -344,16 +333,13 @@
 				}else{
 					 layer.alert(res.error, {icon: 5});
 				}
-			 
 			}
 		  });
-
 
           //监听提交
           form.on('submit(add)', function(data){
             
 					$.post('{fun U('Classtype/addclass')}',data.field,function(r){
-					
 					
 						r = JSON.parse(r);
 
@@ -366,34 +352,25 @@
 							layer.confirm(r.info, {
 							  btn: ['{fun NEXTLANG('返回')}','{fun NEXTLANG('确定')}'] //按钮
 							}, function(){
-							  
-							   
 							   {if($webconf['admintpl']=='tpl')}
 							   window.location.href="{fun U('Classtype/index')}";
 							  {else}
 							   parent.location.reload();
 							   
 							  {/if}
-							   
-							   
 							}, function(){
 							   window.location.href=r.url;
 							});
-							
-						
 						}
 					});
                 return false;
-          });
+          	});
 		 
-		  
 		    form.on('select(pid)', function(data){
 			  var alldata = form.val("nextform");
 			  localStorage.setItem('cachedata', JSON.stringify(alldata));
 			  get_fields(data.value);
 			  get_fields_ext(data.value);
-			  
-			  
 			});
 			$("#resetdata").click(function(){
 				var alldata = localStorage.getItem('cachedata');
@@ -416,12 +393,8 @@
 					if(res.code==0){
 						$("#htmlurl").val(res.data);
 					}
-				
 				})
-			
-			
 			});
-          
         });
 
         function get_molds_html(molds){
@@ -461,14 +434,8 @@
 									}else{
 										tt+='<option value="'+r.data[i].value+'">'+r.data[i].html+'</option>';
 									}
-									
-									
 								}
-								
-									
-								
 							}
-
 						}else{
 							alert(r.msg);
 						}
@@ -485,14 +452,9 @@
 					 error:function(){
 					//请求出错处理
 					}
-
 			})
         	}
-
-
         $(document).ready(function(){
-
-        	
         	get_molds_html($("#molds").val());
         })
 

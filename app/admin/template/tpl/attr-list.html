@@ -9,8 +9,6 @@
             <span class="layui-breadcrumb">
               <a><cite>{fun NEXTLANG('首页')}</cite></a>
               <a><cite>{fun NEXTLANG('推荐属性')}</cite></a>
-             
-              
             </span>
             <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"  href="javascript:location.replace(location.href);" title="{fun NEXTLANG('刷新')}"><i class="iconfont" style="line-height:30px">&#xe6aa;</i></a>
         </div>
@@ -129,17 +127,12 @@
 				});
 			  
 			  form.on('switch(sw)', function(data){
-				
-				
 					var id = $(data.elem).attr('data-id');
 					$.post('{fun U("changeStatus")}',{id:id,value:data.value},function(res){
-					
-					
 					},'json')
 					return false;
 			  });
-			  
-			  
+
 		});
 			function addAttr(){
 				layer.prompt({

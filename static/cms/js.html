@@ -7,71 +7,62 @@
 <script src="{$common}layui/layui.js"></script>
 <script>
 function likes(tid,id){
-        $.ajax({
-                 url:"/user/likesAction",//请求的url地址
-                 dataType:"json",//返回格式为json
-                 async:true,//请求是否异步，默认为异步，这也是ajax重要特性
-                 data:{tid:tid,id:id,ajax:1},//参数值
-                 type:"POST",//请求方式
-                 beforeSend:function(){
-                    //请求前的处理
-                    },
-				 success:function(r){
-					if(r.code==0){
-						layer.msg(r.msg,{icon: 6,time: 2000},function(){
-							location.reload();
-						});
-					   
-					}else{
-						layer.alert(r.msg);
-					}
+	$.ajax({
+		url:"/user/likesAction",//请求的url地址
+		dataType:"json",//返回格式为json
+		async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+		data:{tid:tid,id:id,ajax:1},//参数值
+		type:"POST",//请求方式
+		beforeSend:function(){
+		//请求前的处理
+		},
+		success:function(r){
+		if(r.code==0){
+			layer.msg(r.msg,{icon: 6,time: 2000},function(){
+				location.reload();
+			});
+			
+		}else{
+			layer.alert(r.msg);
+		}
 
-				},
-				 complete:function(){
-				//请求完成的处理
-				},
-				 error:function(){
-				//请求出错处理
-					layer.alert('网络错误');
-				}
-
-
-
-            })
-    }
+	},
+		complete:function(){
+	//请求完成的处理
+	},
+		error:function(){
+	//请求出错处理
+		layer.alert('网络错误');
+	}
+})}
 
 function collect(tid,id){
-        $.ajax({
-                 url:"/user/collectAction",//请求的url地址
-                 dataType:"json",//返回格式为json
-                 async:true,//请求是否异步，默认为异步，这也是ajax重要特性
-                 data:{tid:tid,id:id,ajax:1},//参数值
-                 type:"POST",//请求方式
-                 beforeSend:function(){
-                    //请求前的处理
-                    },
-				 success:function(r){
-					if(r.code==0){
-						layer.msg(r.msg,{icon: 6,time: 2000},function(){
-							location.reload();
-						});
-					}else{
-						layer.alert(r.msg);
-					}
-
-				},
-				 complete:function(){
-				//请求完成的处理
-				},
-				 error:function(){
-				//请求出错处理
-					layer.alert('网络错误');
-				}
-
-
-
-            })
-    }
+	$.ajax({
+		url:"/user/collectAction",//请求的url地址
+		dataType:"json",//返回格式为json
+		async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+		data:{tid:tid,id:id,ajax:1},//参数值
+		type:"POST",//请求方式
+		beforeSend:function(){
+			//请求前的处理
+		},
+		success:function(r){
+		if(r.code==0){
+			layer.msg(r.msg,{icon: 6,time: 2000},function(){
+				location.reload();
+			});
+		}else{
+			layer.alert(r.msg);
+		}
+	},
+		complete:function(){
+	//请求完成的处理
+	},
+		error:function(){
+	//请求出错处理
+		layer.alert('网络错误');
+	}
+})}
 
 function mlogin(){
 	var user = $("#m-user").val();
@@ -106,7 +97,6 @@ function mlogin(){
 	},'json')
 	
 	return false;
-	
 }
 
 function mregister(){
@@ -149,7 +139,6 @@ function mregister(){
 	},'json')
 	
 	return false;
-	
 }
 
 function sendmsg(){
@@ -174,8 +163,6 @@ function sendmsg(){
 	},'json');
 	
 	return false;
-	
-	
 }
 
 function reply(pid,username,zid){
@@ -304,25 +291,22 @@ function addcart(tid,id,num){
 		 type:"POST",//请求方式
 		 beforeSend:function(){
 			//请求前的处理
-			},
-			 success:function(r){
-				if(r.code==0){
-					window.location.href=r.url;
-				}else{
-					layer.alert(r.msg);
-				}
-
-			},
-			 complete:function(){
-			//请求完成的处理
-			},
-			 error:function(){
-			//请求出错处理
-				layer.alert('网络错误');
+		},
+		success:function(r){
+			if(r.code==0){
+				window.location.href=r.url;
+			}else{
+				layer.alert(r.msg);
 			}
 
-
-
+		},
+		complete:function(){
+			//请求完成的处理
+		},
+			error:function(){
+			//请求出错处理
+			layer.alert('网络错误');
+		}
 	})
 }
 $(function(){
@@ -353,10 +337,6 @@ $(function(){
 		 }
 	})
 	},30000);
-
-
  })
-
-
 
 </script>

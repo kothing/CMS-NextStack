@@ -191,11 +191,8 @@
 					$("#myform").submit();
 				
 			 });
-			 
-              
+
             });
-			
-			
 			
 		 /*删除*/
             function collect_del(obj,id){
@@ -246,18 +243,16 @@
 					
 					$.get("{__APP_URL__}/Collect/deleteAll/data/"+data,{},function(r){
 					
-							var r = JSON.parse(r);
-							if(r.code==0){
-							  layer.msg('{fun NEXTLANG('删除成功')}', {icon: 1});
-							  $(".layui-form-checked").not('.header').parents('tr').remove();
-								
-							}else{
-								
-								layer.msg(r.msg,{icon: 5,time:1000});
-							}
+						var r = JSON.parse(r);
+						if(r.code==0){
+							layer.msg('{fun NEXTLANG('删除成功')}', {icon: 1});
+							$(".layui-form-checked").not('.header').parents('tr').remove();
+							
+						}else{
+							
+							layer.msg(r.msg,{icon: 5,time:1000});
+						}
 					})
-					
-					
 					
 				});
 			  }

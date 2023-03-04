@@ -8,57 +8,56 @@
     w       弹出层宽度（缺省调默认值）
     h       弹出层高度（缺省调默认值）
 */
-function x_admin_show(title,url,w,h){
+function x_admin_show(title, url, w, h) {
     if (title == null || title == '') {
-        title=false;
+        title = false;
     };
     if (url == null || url == '') {
-        url="404.html";
+        url = "404.html";
     };
     if (w == null || w == '') {
-        w=($(window).width()*0.9);
+        w = ($(window).width() * 0.9);
     };
     if (h == null || h == '') {
-        h=($(window).height() - 50);
+        h = ($(window).height() - 50);
     };
-	//window.location.href=url;return false;
+    //window.location.href=url;return false;
     layer.open({
         type: 2,
-        area: [w+'px', h +'px'],
+        area: [w + 'px', h + 'px'],
         fix: false, //不固定
         maxmin: true,
         shadeClose: false,
-        shade:0.4,
+        shade: 0.4,
         title: title,
         content: url
     });
-	
+
 }
 
 
-function x_top_show(title,url,w,h){
+function x_top_show(title, url, w, h) {
     if (title == null || title == '') {
-        title=false;
+        title = false;
     };
     if (url == null || url == '') {
-        url="404.html";
+        url = "404.html";
     };
     if (w == null || w == '') {
-        w=($(window).width()*0.9);
+        w = ($(window).width() * 0.9);
     };
     if (h == null || h == '') {
-        h=($(window).height() - 50);
+        h = ($(window).height() - 50);
     };
-	//window.location.href=url;return false;
+    //window.location.href=url;return false;
     layer.open({
         type: 2,
-        area: [w+'px', h +'px'],
+        area: [w + 'px', h + 'px'],
         fix: false, //不固定
         maxmin: true,
         shadeClose: false,
-        shade:0.4,
+        shade: 0.4,
         title: title,
         content: url
     });
-	
 }

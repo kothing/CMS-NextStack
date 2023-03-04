@@ -37,33 +37,31 @@
             <th >{fun NEXTLANG('操作')}</th>
         </thead>
         <tbody class="x-cate">
-		{foreach $lists as $v}
+		    {foreach $lists as $v}
           <tr cate-id="{$v['id']}" fid="0" >
 			
             <td>{$v['id']}</td>
             <td>{$v['name']}</td>
-			<td>{fun date('Y-m-d H:i:s',$v['addtime'])}</td>
+			      <td>{fun date('Y-m-d H:i:s',$v['addtime'])}</td>
 			
             <td class="td-manage">
-			{if(checkAction('Collect/collectTypeEdit'))}
+			      {if(checkAction('Collect/collectTypeEdit'))}
               <a class="layui-btn layui-btn layui-btn-xs"  onclick="x_admin_show('{fun NEXTLANG('编辑')}','{fun U('Collect/collectTypeEdit',array('id'=>$v['id']))}')" >{fun NEXTLANG('编辑')}</a>
-			{/if}
-			{if(checkAction('Collect/collectTypeDelete'))}
+			      {/if}
+			      {if(checkAction('Collect/collectTypeDelete'))}
               <a class="layui-btn-danger layui-btn layui-btn-xs"  onclick="collectType_del(this,'{$v['id']}')" href="javascript:;" >{fun NEXTLANG('删除')}</a>
-			{/if}  
+			      {/if}  
             </td>
           </tr>
-		 {/foreach}
+		      {/foreach}
          
         </tbody>
       </table>
 			</div>
 		</div>
      
-    
     </div>
     
-	
     <script>
       layui.use(['form'], function(){
         form = layui.form;
@@ -90,16 +88,10 @@
 					}
 				
 			  });
-		
-			  
-			  
-              
-          });
+
+        });
       }
 
-		
-			
-    
     </script>
     
   </body>

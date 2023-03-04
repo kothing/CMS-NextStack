@@ -252,24 +252,15 @@
 				  error:function(){
 					  //请求出错处理
 				  }
-
-
-
 			  })
-
-
 		  })
-
-
-
-
 	  }
 
 	  function setconf(){
 		 layer.prompt({
 		  formType: 0,
 		  value: '{$webapi}',
-		  title: '{fun NEXTLANG('设置接口')}',
+		  title: '{fun NEXTLANG("设置接口")}',
 		  area: ['800px', '400px']
 		}, function(value, index, elem){
 		  $.post("{fun U('plugins/index')}",{set:1,webapi:value},function(r){
@@ -287,8 +278,6 @@
 			  
 	  
 	  }
-
-
 
     </script>
    

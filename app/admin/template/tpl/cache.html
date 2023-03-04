@@ -86,8 +86,6 @@
 							  {fun NEXTLANG('文件夹image，主要是程序执行时生成的自定义缩略图')}
 						</div>
 					  </div>
-					  
-					
 					  <div class="layui-form-item">
 						<div class="layui-input-block">
 						  <button class="layui-btn" lay-submit lay-filter="formDemo">{fun NEXTLANG('立即清空')}</button>
@@ -104,14 +102,14 @@
     </div>
         <script>
 		layui.use(['laydate','form','layer','upload'], function(){
-                $ = layui.jquery;
-              var form = layui.form
-              ,layer = layui.layer;
-			  laydate = layui.laydate;
-			  var upload = layui.upload;
-			  form.render();
-			     //监听提交
-              form.on('submit(formDemo)', function(data){
+            $ = layui.jquery;
+            var form = layui.form
+            ,layer = layui.layer;
+			laydate = layui.laydate;
+			var upload = layui.upload;
+			form.render();
+			//监听提交
+            form.on('submit(formDemo)', function(data){
 				if(JSON.stringify(data.field)=="{}"){
 					layer.msg('{fun NEXTLANG('请选择清空目标！')}');
 				}
@@ -129,8 +127,7 @@
 						layer.alert(r.msg, {icon: 5});
 					}
 				});
-				
-               
+
                 return false;
               });
 		})

@@ -44,14 +44,15 @@ if(isset($model)){
 					<script id="'.$v['field'].$rd.'" name="'.$v['field'].'" type="text/plain" style="width:100%;height:400px;">'.$data[$v['field']].'</script>	
 					</div>
 		            <label  class="fields_tips">'.$must.$v['tips'].'</label>
-		        </div><script>
-						$(document).ready(function(){
-						var ue_'.$v['field'].$rd.' = UE.getEditor("'.$v['field'].$rd.'",{
-							toolbars : [['.htmlspecialchars_decode($this->webconf['ueditor_user_config']).']]
-							}		
-						);	
-						});
-						</script>';	
+		        </div>
+				<script>
+					$(document).ready(function(){
+					var ue_'.$v['field'].$rd.' = UE.getEditor("'.$v['field'].$rd.'",{
+						toolbars : [['.htmlspecialchars_decode($this->webconf['ueditor_user_config']).']]
+						}		
+					);	
+					});
+				</script>';	
 		break;
 		
 	}

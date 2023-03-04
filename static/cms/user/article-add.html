@@ -7,67 +7,67 @@
   <title>发布内容 - 个人中心</title>
   {include="user/style"}
   <style>
-	.user-form .form-control>input[type='button']:hover {
-		color: #fff;
-		background: #007bff;
-		border: 1px solid #007bff
-	}
+    .user-form .form-control>input[type='button']:hover {
+      color: #fff;
+      background: #007bff;
+      border: 1px solid #007bff
+    }
 
-	.nexthide {
-		display: none
-	}
+    .nexthide {
+      display: none
+    }
 
-	.mu {
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		background: #524e4e;
-		padding: 0;
-		margin: 0;
-		top: 0;
-		opacity: 40%;
-		z-index: 9999
-	}
+    .mu {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #524e4e;
+      padding: 0;
+      margin: 0;
+      top: 0;
+      opacity: 40%;
+      z-index: 9999
+    }
 
-	.nexttip.nexthide {
-		text-align: center;
-		background-color: #fff;
-		border-radius: 4px;
-		width: 300px;
-		height: 130px;
-		margin: auto;
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 9999
-	}
+    .nexttip.nexthide {
+      text-align: center;
+      background-color: #fff;
+      border-radius: 4px;
+      width: 300px;
+      height: 130px;
+      margin: auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999
+    }
 
-	.next_body {
-		font-size: 16px;
-		line-height: 22px;
-		padding: 25px
-	}
+    .next_body {
+      font-size: 16px;
+      line-height: 22px;
+      padding: 25px
+    }
 
-	.next_botton {
-		margin-top: 15px;
-		border-top: 1px solid #ccc;
-		color: #3c61a5cc;
-		padding-top: 10px;
-		cursor: pointer;
-	}
+    .next_botton {
+      margin-top: 15px;
+      border-top: 1px solid #ccc;
+      color: #3c61a5cc;
+      padding-top: 10px;
+      cursor: pointer;
+    }
 
-	.layui-input-block {
-		margin-left: 0px;
-	}
+    .layui-input-block {
+      margin-left: 0px;
+    }
 
-	.tj {
-		cursor: pointer;
-	}
+    .tj {
+      cursor: pointer;
+    }
   </style>
-	<script type="text/javascript" charset="utf-8" src="/static/common/user/uedit/ueditor.config.js?v=2"></script>
-	<script type="text/javascript" charset="utf-8" src="/static/common/user/uedit/ueditor.all.js?v=1"> </script>
+	<script type="text/javascript" charset="utf-8" src="/static/common/user/uedit/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/static/common/user/uedit/ueditor.all.js"> </script>
 	<script type="text/javascript" charset="utf-8" src="/static/common/user/uedit/lang/zh-cn/zh-cn.js"></script>
 </head>
 <body>
@@ -133,44 +133,41 @@
           if(len>0){
             //根据对应的字段，进行HTML设计
             for(var i=0;i<len;i++){
-              
+              //
             }
-            
           }
           $("#fields_ext").html(res.tpl);
         }
-        
       },'json');
     }
 
     function getclass(molds){
-    $.post("{fun U('user/getclass')}",{molds:molds},function(res){
-          if(res.code==0){
-            {if($data)}
-            var id = {$data['id']};
-            {else}
-            var id = 0;
-            {/if}
-            var tid = {$tid};
-            var html = '';
-            for(var i=0;i<res['data'].length;i++){
-          var classname = '';
-        for(var j=1;j<=res['data'][i]['level'];j++){
-          classname += '--';
-        }
-        classname += res['data'][i]['classname'];
-              if(tid==res['data'][i]['id']){
-                html+='<option value="'+res['data'][i]['id']+'" selected>'+classname+'</option>';
-              }else{
-                html+='<option value="'+res['data'][i]['id']+'" >'+classname+'</option>';
-              }
+      $.post("{fun U('user/getclass')}",{molds:molds},function(res){
+        if(res.code==0){
+          {if($data)}
+          var id = {$data['id']};
+          {else}
+          var id = 0;
+          {/if}
+          var tid = {$tid};
+          var html = '';
+          for(var i=0;i<res['data'].length;i++){
+            var classname = '';
+            for(var j=1;j<=res['data'][i]['level'];j++){
+              classname += '--';
             }
-            $("#tid").html(html);
-            
-            get_fields(tid,id)
+            classname += res['data'][i]['classname'];
+            if(tid==res['data'][i]['id']){
+              html+='<option value="'+res['data'][i]['id']+'" selected>'+classname+'</option>';
+            }else{
+              html+='<option value="'+res['data'][i]['id']+'" >'+classname+'</option>';
+            }
           }
+          $("#tid").html(html);
           
-        },'json');
+          get_fields(tid,id)
+        }
+      },'json');
     }  
 
     function submitform(){
@@ -179,12 +176,10 @@
           layer.msg('提交成功！',{icon:6,time:2000},function(){
             window.location.href=res.url;
           })
-
         }else{
           layer.msg(res.msg,{icon:5,time:2000})
           return false;
         }
-        
       },'json');
     }
 
@@ -203,13 +198,13 @@
           getclass(molds)
       });
       $("#tid").change(function () {
-          {if($data)}
-          var id = {$data['id']};
-          {else}
-          var id = 0;
-          {/if}
-          var tid = $("#tid").val();
-          get_fields(tid,id)
+        {if($data)}
+        var id = {$data['id']};
+        {else}
+        var id = 0;
+        {/if}
+        var tid = $("#tid").val();
+        get_fields(tid,id)
       });
     });
   </script>

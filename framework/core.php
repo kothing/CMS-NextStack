@@ -95,7 +95,7 @@ class framework
 		//读取系统配置
 		$webconfig = getCache('webconfig');
 		if( !isset($webconfig['closesession']) || (isset($webconfig['closesession']) && $webconfig['closesession']==0) || APP_HOME=='app/admin'){
-			//检查是否开启redis_session ---2019/09/05 留恋风
+			//检查是否开启redis_session
 			if(open_redis_session){
 				$session = new \SessionRedis($this->config['redis']);
 				session_set_save_handler($session,true);
@@ -246,7 +246,7 @@ class framework
         }
 		
 		
-		// 判断插件中是否存在控制器和操作--2019/2/15 by 留恋风
+		// 判断插件中是否存在控制器和操作
         $app_home = str_replace('/','\\',APP_HOME);
         $controller = $app_home.'\\plugins\\'. $controllerName . 'Controller';
 		if (!class_exists($controller) || !method_exists($controller, $actionName)) {

@@ -5,7 +5,6 @@ $(function(){
 		$(this).parent().remove();
 	})
 	
-	
 	$(document).on("click",".layui-sys-icon",function(){
 		var fclass = $(this).attr('data-field');
 		layer.tips($(this).attr('data-info'), '.'+fclass);
@@ -15,7 +14,6 @@ $(function(){
 		layer.tips($(this).attr('data-info'), '.'+fclass);
 	})
 	
-
 })
 
 function get_fields(tid,id){

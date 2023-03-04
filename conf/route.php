@@ -24,7 +24,6 @@ return [
 	['/^\/screen-(\w+)-([0-9]+)-(.*)/','Screen/index/molds/$1/tid/$2/next_screen/$3',''],
 	['/^\/searchAll(.*)/','Home/searchAll','GET'],
 	['/^\/search(.*)/','Home/search','GET'],
-	
 ];
 
 

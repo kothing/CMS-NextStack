@@ -2,7 +2,7 @@
 
 return [
 	'name'=>'官方默认模板',
-	'desc'=>'此模板拥有NextStack CMS所有功能，仅供参考和学习！',
+	'desc'=>'NextStack模板，仅供参考和学习！',
 	'author'=>'Lyove',
 	'version'=>'1.0',//默认1.0为最低版本
 	'web'=>'#',
