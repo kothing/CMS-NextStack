@@ -35,7 +35,7 @@ class TemplateController extends CommonController
 		//检查更新链接是否可以访问
 		$webapi = $this->webconf['template_config'];
 		if(!$webapi){
-			$webapi = 'http://api.jizhicms.cn/template.php';
+			$webapi = '';
 			if(!M('sysconfig')->find(['field'=>'template_config'])){
 				M('sysconfig')->add(['title'=>NEXTLANG('插件配置'),'field'=>'template_config','type'=>2,'data'=>$webapi,'typeid'=>0]);
 				setCache('webconfig',null);

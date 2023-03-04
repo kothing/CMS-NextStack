@@ -20,7 +20,7 @@ class PluginsController extends CommonController
 		//检查更新链接是否可以访问
 		$webapi = $this->webconf['plugins_config'];
 		if(!$webapi){
-			$webapi = 'http://api.jizhicms.cn/plugins.php';
+			$webapi = '';
 			if(!M('sysconfig')->find(['field'=>'plugins_config'])){
 				M('sysconfig')->add(['title'=>NEXTLANG('插件配置'),'field'=>'plugins_config','type'=>2,'data'=>$webapi,'typeid'=>0]);
 				setCache('webconfig',null);

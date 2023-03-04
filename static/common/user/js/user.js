@@ -38,12 +38,11 @@ $(function(){
 		 success:function(r){
 			var n = parseInt(r);
 			if(n>0){
-			$("#notifiy-icon").addClass('new-notification')
+				$("#notifiy-icon").addClass('new-notification')
 			}else{
-			$("#notifiy-icon").removeClass('new-notification')
+				$("#notifiy-icon").removeClass('new-notification')
 			}
 			$("#notifiy-num").html(n);
-			
 		 }
 	})
 	},30000);
