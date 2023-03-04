@@ -328,15 +328,15 @@ function addcart(tid,id,num){
 $(function(){
 	
 	var interval =  setInterval(function(){
-	// $.ajax({
-	// 	 url:"/common/updateactive",
-	// 	 dataType:"json",
-	// 	 async:true,
-	// 	 type:"GET",
-	// 	 success:function(r){
-	// 	 }
-	// })
-	// },30000);
+	$.ajax({
+		 url:"/common/updateactive",
+		 dataType:"json",
+		 async:true,
+		 type:"GET",
+		 success:function(r){
+		 }
+	})
+	},30000);
 	var interval2 =  setInterval(function(){
 	$.ajax({
 		 url:"/user/getmsg",
