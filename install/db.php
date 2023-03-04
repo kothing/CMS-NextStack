@@ -1288,7 +1288,7 @@ INSERT INTO `next_ruler` (`id`,`name`,`fc`,`pid`,`isdesktop`,`sys`) VALUES ('245
 INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('1','web_version','系统版号','版本号是系统自带，请勿改动','0','0.0.1','0', NULL,'0','1');
 INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('2','web_name','网站SEO名称','控制在25个字、50个字节以内','2','NextStack CMS建站系统','1', NULL,'0','1');
 INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('3','web_keyword','网站SEO关键词','5个左右，8汉字以内，用英文逗号隔开','2','NextStack建站,开源cms,内容管理系统','1', NULL,'0','1');
-INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('4','web_desc','网站SEO描述','控制在80个汉字，160个字符以内','3','NextStack CMS 开源，无需授权，简单易用。','1', NULL,'0','1');
+INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('4','web_desc','网站SEO描述','控制在80个汉字，160个字符以内','3','NextStack CMS，开源，易用，安全。','1', NULL,'0','1');
 INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('5','web_js','统计代码','将百度统计、cnzz等平台的流量统计JS代码放到这里','9', NULL,'1', NULL,'0','1');
 INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('6','web_copyright','底部版权','如：&copy; 2016 xxx版权','2','@2020-2099','1', NULL,'0','1');
 INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('7','web_beian','备案号','如：京ICP备00000000号','2','京ICP备00000000号','1', NULL,'0','1');
@@ -1296,7 +1296,7 @@ INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,
 INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('9','web_tel_400','400电话','400电话','2','400-0000-000','1', NULL,'0','1');
 INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('10','web_qq','网站QQ','网站QQ','2','12345678','1', NULL,'0','1');
 INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('11','web_email','网站邮箱','网站邮箱','2','123456@qq.com','1', NULL,'0','1');
-INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('12','web_address','公司地址','公司地址','2','河北省廊坊市广阳区xxx大厦xx楼001号','1', NULL,'0','1');
+INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('12','web_address','公司地址','公司地址','2','北京市001号','1', NULL,'0','1');
 INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('13','pc_template','PC网站模板','将模板名称填写到此处','2','cms','2', NULL,'1','1');
 INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('14','wap_template','WAP网站模板','开启了手机端，这个设置才会生效，否则调用电脑端模板','2','cms','2',NULL,'1','1');
 INSERT INTO `next_sysconfig` (`id`,`field`,`title`,`tip`,`type`,`data`,`typeid`,`config`,`orders`,`sys`) VALUES ('15','weixin_template','微信网站模板','开启了手机端，这个设置才会生效，否则调用电脑端模板。由于微信内有一些特殊的js，所以可以在这里单独设置微信模板','2','cms','2', NULL,'1','1');
