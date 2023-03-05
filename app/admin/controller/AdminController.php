@@ -16,9 +16,6 @@ use framework\extend\Page;
 
 class AdminController extends CommonController
 {
-
-	
-	
 	public function group(){
 		$page = new Page('Level_group');
 		$sql = ' 1=1 ';
@@ -58,8 +55,6 @@ class AdminController extends CommonController
 		}else{
 			JsonReturn(array('code'=>1,'msg'=>NEXTLANG('非法操作！')));
 		}
-		
-		
 	}
 	
 	function groupedit(){
@@ -79,9 +74,6 @@ class AdminController extends CommonController
 			}else{
 				JsonReturn(array('code'=>1,'msg'=>NEXTLANG('修改失败，请重新提交！')));
 			}
-			
-			
-			
 		}
 		
 		$this->data = M('level_group')->find(['id'=>$this->frparam('id')]);
@@ -122,11 +114,7 @@ class AdminController extends CommonController
 			}else{
 				JsonReturn(array('code'=>1,'msg'=>NEXTLANG('新增失败，请重新提交！')));
 			}
-			
-			
-			
 		}
-		
 		
 		$rulers = M('ruler')->findAll(null,'id ASC');
 		$ruler_top = array();
@@ -141,10 +129,9 @@ class AdminController extends CommonController
 		$this->ruler_top = $ruler_top;
 		$this->ruler_children = $ruler_children;
 		
-		
-		
 		$this->display('group-add');
 	}
+
 	public function change_group_status(){
 		$id = $this->frparam('id',1);
 		if(!$id){
@@ -164,7 +151,6 @@ class AdminController extends CommonController
 	}
 	
 	public function adminlist(){
-		
 		$data = $this->frparam();
 		$res = molds_search('level',$data);
 		$get_sql = ($res['fields_search_check']!='') ? (' and '.$res['fields_search_check']) : '';
@@ -264,8 +250,6 @@ class AdminController extends CommonController
 			if($data['id']==0){
 				JsonReturn(array('code'=>1,'msg'=>NEXTLANG('非法操作！')));
 			}
-			
-			
             
 			if($data['pass']){
 				if($data['pass']!=$data['repass']){
@@ -276,9 +260,6 @@ class AdminController extends CommonController
 				unset($data['pass']);
 			}
 
-			
-          
-           
 			
 			if($data['tel']){
 				if(M('level')->find("tel='".$data['tel']."' and id!=".$data['id'])){
@@ -320,7 +301,6 @@ class AdminController extends CommonController
 	}
 	
 	public function adminadd(){
-		
 		$this->fields_biaoshi = 'level';
 		if($this->frparam('go')==1){
 			$data = $this->frparam();
@@ -335,7 +315,6 @@ class AdminController extends CommonController
 			if(!isset($_SESSION['token']) || !$token || $token!=$_SESSION['token']){
 				JsonReturn(array('code'=>1,'msg'=>NEXTLANG('非法操作！')));
 			}
-			
 			
 			$data['email'] = $this->frparam('email',1);
 			$data['pass'] = $this->frparam('pass',1);
@@ -373,8 +352,8 @@ class AdminController extends CommonController
 			}else{
 				JsonReturn(array('code'=>1,'msg'=>NEXTLANG('新增失败！')));
 			}
-			
 		}
+
         $this->admin = $_SESSION['admin'];
         $this->groups = M('level_group')->findAll();
 		if($_SESSION['admin']['isadmin']==1){
@@ -389,7 +368,6 @@ class AdminController extends CommonController
 		setCache('admin_'.$this->admin['id'].'_token',$token);
 		$this->token = $token;
 		$this->display('admin-add');
-	
 	}
 	
 	public function change_status(){
@@ -400,7 +378,6 @@ class AdminController extends CommonController
 		
 		$x = M('level')->find('id='.$id);
 		
-		
 		if($x['status']==1){
 			$x['status']=0;
 		}else{
@@ -408,6 +385,7 @@ class AdminController extends CommonController
 		}
 		M('level')->update(array('id'=>$id),array('status'=>$x['status']));
 	}
+
 	public function admindelete(){
     	$id = $this->frparam('id',1);
         if($id==''){
@@ -420,7 +398,7 @@ class AdminController extends CommonController
 		
         $data = M('level')->find(array('id'=>$id));
         $x = M('level')->delete(array('id'=>$id));
-		  if($x){
+		if($x){
 			$w['molds'] = 'level';
 			$w['data'] = serialize($data);
 			$w['title'] = '['.$data['id'].']'.$data['name'];
@@ -429,7 +407,7 @@ class AdminController extends CommonController
 			JsonReturn(array('code'=>0,'msg'=>NEXTLANG('删除成功！')));
 		  }else{
 			JsonReturn(array('code'=>1,'msg'=>NEXTLANG('删除失败！')));
-		  }
+		}
     }
 
 	

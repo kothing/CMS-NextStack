@@ -224,7 +224,6 @@ class View
             if (!is_file($includefile)) {
                 Error_msg($file.'不存在！');
             }
-			
 		}
   
 		$content = file_get_contents($includefile);

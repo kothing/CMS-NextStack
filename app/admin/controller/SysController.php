@@ -16,11 +16,7 @@ use framework\extend\Page;
 
 class SysController extends CommonController
 {
-
-
-
     public function index(){
-
         $web_config = $this->webconf;
         $custom = M('sysconfig')->findAll('type!=0');
         if($_POST){
@@ -66,15 +62,11 @@ class SysController extends CommonController
                         $valueArr[]=['data'=>$value];
                     }
                 }
-
-
-
-
             }
+
             if(count($whereArr) && count($valueArr)){
                 M('sysconfig')->updateMuti($whereArr,$valueArr);
             }
-
 
             //检测是否有新增
             if($this->frparam('custom_title',1) && $this->frparam('custom_type')){
@@ -207,9 +199,9 @@ class SysController extends CommonController
 				JsonReturn(['code'=>0,'data'=>array(),'count'=>0]);
 			}
 			if($this->admin['isadmin']!=1){
-				$admins = M('level')->findAll(['gid'=>1]);
+				$adminx = M('level')->findAll(['gid'=>1]);
 				$ids = [];
-				foreach($admins as $v){
+				foreach($adminx as $v){
 					$ids[]=$v['id'];
 				}
 				$new = [];
@@ -302,14 +294,11 @@ class SysController extends CommonController
 			}else{
 				JsonReturn(['code'=>1,'msg'=>NEXTLANG('远程存储图片无法删除！')]);
 			}
-			
-			
-			
 		}else{
 			JsonReturn(['code'=>1,'msg'=>NEXTLANG('图片ID错误！')]);
 		}
-		
 	}
+
 	//批量删除
 	public function deletePicAll(){
 		$data = $this->frparam('data',1);
@@ -334,8 +323,6 @@ class SysController extends CommonController
 			}else{
 				JsonReturn(array('code'=>0,'msg'=>NEXTLANG('部分删除成功，存在远程链接无法删除！')));
 			}
-			
-			
 		}
 		
 	}
@@ -382,13 +369,9 @@ class SysController extends CommonController
 				$data['code'] = 1001;
 				  
 			} 
-
-			  
-		  
 		}
 
-		JsonReturn($data);
-		  
+		JsonReturn($data);  
 	}
 
 	public function datacache(){
@@ -654,11 +637,6 @@ class SysController extends CommonController
         setCache('mobilehometpl',null);
 
         JsonReturn(array('code'=>0,'msg'=>NEXTLANG('操作成功！')));
-
-
     }
-
-
-
 
 }

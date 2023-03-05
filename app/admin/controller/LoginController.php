@@ -55,8 +55,6 @@ class LoginController extends Controller
 			$res3 = M('level')->find($where);
 		
 			
-			
-			
 			if($res1 || $res2 || $res3){
 			
 				$res = ($res1) ? $res1 :($res2 ? $res2 : $res3);

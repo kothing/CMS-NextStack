@@ -73,21 +73,21 @@ function new_is_writeable($file) {
 }
 
 // 获取后台文件名
-function get_admin_url(){
+function get_admin_url() {
     $data = file_get_contents("../index.php");
-    if(stripos($data,'ADMIN_MODEL')!==false){
-        $r = preg_match("/define\('ADMIN_MODEL',[\'|\"](.*?)[\'|\"]\)/",$data,$matches);
-        if($r){
-            $admins = $matches[1];
-        }else{
-            $admins = 'admins';
+    if(stripos($data, 'ADMIN_MODEL') !== false){
+        $r = preg_match("/define\('ADMIN_MODEL',[\'|\"](.*?)[\'|\"]\)/", $data, $matches);
+        if($r) {
+            $adminx = $matches[1];
+        } else {
+            $adminx = 'adminx';
         }
         
-    }else{
-        $admins = 'admins';
+    } else {
+        $adminx = 'adminx';
     }
     
-    return 'index.php/'.$admins;
+    return 'index.php/'.$adminx;
 }
 
 // 获取域名
@@ -399,18 +399,3 @@ switch($act){
 	$tpl = include('tpl/index.html');
 	break;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

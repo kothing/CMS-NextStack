@@ -17,25 +17,21 @@ class CommonController extends Controller
       if(!isset($_SESSION['admin']) || $_SESSION['admin']['id']==0){
 		   $_SESSION['admin'] = null;
       	   Redirect(U('Login/index'));
-        
       }
  
       if($_SESSION['admin']['isadmin']!=1){
 		if(strpos($_SESSION['admin']['paction'],','.APP_CONTROLLER.',')!==false){
-           
+           //
         }else{
 			$action = APP_CONTROLLER.'/'.APP_ACTION;
 			if(strpos($_SESSION['admin']['paction'],','.$action.',')===false){
 			   $ac = M('Ruler')->find(array('fc'=>$action));
 			   if($this->frparam('ajax')){
-				   
 				   JsonReturn(['code'=>1,'msg'=>NEXTLANG('您没有权限！').'【'.NEXTLANG($ac['name']).'】','url'=>U('Index/welcome')]);
 			   }
 			   Error(NEXTLANG('您没有权限！').'【'.$ac['name'].'】',U('Index/welcome'));
 			}
 		}
-       
-      
       }
 
 	  
@@ -61,7 +57,7 @@ class CommonController extends Controller
 		$this->classtypedata = getclasstypedata($classtypedata,$m);
 	  
 
-	  if($_SESSION['admin']['isadmin']!=1){
+	  	if($_SESSION['admin']['isadmin']!=1){
 			$tids = $_SESSION['admin']['tids'];
 			foreach ($this->classtypetree as $k => $v) {
 				if($v['pid']==0){
@@ -81,7 +77,6 @@ class CommonController extends Controller
 			$tids = '0';
 		}
 		$this->tids = $tids;
-    
     }
 	
 	function uploads(){
@@ -96,7 +91,6 @@ class CommonController extends Controller
 		  $pix = explode('.',$_FILES['file']['name']);
 		  $pix = end($pix);
 		  
-		  
 		    $fileType = $this->webconf['fileType'];
 			if(strpos($fileType,strtolower($pix))===false   || stripos($pix,'php')!==false){
 				$data['error'] =  "Error: ".NEXTLANG("文件类型不允许上传！");
@@ -109,8 +103,8 @@ class CommonController extends Controller
 				$data['code'] = 1003;
 				JsonReturn($data);
 			}
-		  if(isset($this->webconf['admin_save_path'])){
-			  //替换日期事件
+		  	if(isset($this->webconf['admin_save_path'])){
+			    //替换日期事件
 				$t = time();
 				$d = explode('-', date("Y-y-m-d-H-i-s"));
 				$format = $this->webconf['admin_save_path'];
@@ -148,16 +142,14 @@ class CommonController extends Controller
 				}else{
 					$admin_save_path = 'public/Admin';
 				}
-				
-				
 		  }else{
 			 $admin_save_path = 'public/Admin';
 		  }
+
 		  $filename =  $admin_save_path.'/'.date('Ymd').rand(1000,9999).'.'.$pix;
 		  $filename_x =  $admin_save_path.'/'.date('Ymd').rand(1000,9999).'.'.$pix;
 		  
 			if(move_uploaded_file($_FILES["file"]['tmp_name'],$filename)){
-			
 				if( (strtolower($pix)=='png' && $this->webconf['ispngcompress']==1) || strtolower($pix)=='jpg' || strtolower($pix)=='jpeg'){
 					$imagequlity = (int)$this->webconf['imagequlity'];
 					if($imagequlity!=100){
@@ -172,36 +164,22 @@ class CommonController extends Controller
     					$image->saveImage($filename_x);
     					$filename = $filename_x;
 					}
-				   
 				}
 				if( (strtolower($pix)=='png' || strtolower($pix)=='jpg' || strtolower($pix)=='jpeg') && $this->webconf['iswatermark']==1 && $this->webconf['watermark_file']!='' && !empty($this->webconf['watermark_file'])){
 					if(file_exists(APP_PATH.$this->webconf['watermark_file'])){
 						watermark($filename,APP_PATH.$this->webconf['watermark_file'],$this->webconf['watermark_t'],$this->webconf['watermark_tm']);
 					}
-					
 				}
 				$data['url'] = '/'.$filename;
 				$data['code'] = 0;
 				$filesize = round(filesize(APP_PATH.$filename)/1024,2);
 				M('pictures')->add(['litpic'=>'/'.$filename,'addtime'=>time(),'userid'=>$_SESSION['admin']['id'],'size'=>$filesize,'filetype'=>strtolower($pix),'tid'=>$this->frparam('tid',0,0),'molds'=>$this->frparam('molds',1,null)]);
-				
-				
 			}else{
 				$data['error'] =  "Error: ".NEXTLANG("请检查目录写入权限")."[".$admin_save_path."]";
 				$data['code'] = 1001;
-				  
 			} 
-
-			  
-		  
 		  }
 
 		  JsonReturn($data);
-		  
 	}
-	
-	
-	
-	
-
 }

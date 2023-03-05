@@ -10,7 +10,7 @@ namespace framework;
 defined('CORE_PATH') or define('CORE_PATH', __DIR__);
 
 // 内核版本信息
-const FrameWork_VERSION     =   '0.1';
+const FrameWork_VERSION = '0.1';
 
 /**
  * FrameWork框架核心
@@ -457,7 +457,7 @@ $config = require(APP_PATH . 'conf/config.php');
 
 $url = urldecode($_SERVER['REQUEST_URI']);
 
-defined('ADMIN_MODEL') or define('ADMIN_MODEL', 'admins');
+defined('ADMIN_MODEL') or define('ADMIN_MODEL', 'adminx');
 
 //判断是否后台入口
 if (strpos($url, '/index.php/'.ADMIN_MODEL) !== false || (defined('APP_HOME') && APP_HOME=='app/admin')) {

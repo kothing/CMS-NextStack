@@ -78,11 +78,7 @@ class LinksController extends CommonController
 			$this->lists = $data;
 			$this->sum = $page->sum;
 			JsonReturn(['code'=>0,'data'=>$ajaxdata,'count'=>$page->sum]);
-			
-			
 		}
-		
-		
 		
 		
 		$this->display('links-list');
@@ -122,9 +118,8 @@ class LinksController extends CommonController
 				
 			}
 			
-			
-			
 		}
+
 		$this->classtypes = $this->classtypetree;
 		$this->tid =  $this->frparam('tid',0,0);
 		$this->molds = M('Molds')->find(array('biaoshi'=>$molds));
@@ -216,10 +211,8 @@ class LinksController extends CommonController
 				JsonReturn(array('code'=>1,'msg'=>NEXTLANG('缺少ID')));
 				
 			}
-			
-			
-			
 		}
+		
 		$this->data = M($molds)->find(array('id'=>$this->frparam('id')));
 		$this->molds = M('Molds')->find(array('biaoshi'=>$molds));
 		$this->tid =  $this->data['tid'];

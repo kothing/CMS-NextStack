@@ -90,10 +90,6 @@ class IndexController extends CommonController
 			}else{
 				unset($data['pass']);
 			}
-
-			
-          
-           
 			
 			if($data['tel']!=''){
 				if(M('level')->find("tel='".$data['tel']."' and id!=".$data['id'])){
@@ -971,9 +967,6 @@ class IndexController extends CommonController
                 JsonReturn(['code'=>0,'msg'=>NEXTLANG('网站地图创建成功！')]);
             }
             
-            
-            
-            
         }
         
         $this->display('sitemap');
@@ -1113,8 +1106,6 @@ class IndexController extends CommonController
 				}
 				
 				
-				
-				
 			}
 			
 			
@@ -1153,8 +1144,6 @@ class IndexController extends CommonController
 							echo $value['html'].NEXTLANG('清除成功！').'<br/>';
 						}
 							
-
-
 					}else{
 						if($_SESSION['terminal']=='pc'){
 							$data = curl_http($value['url']);
@@ -1518,7 +1507,6 @@ class IndexController extends CommonController
 				exit;
 			}
 			
-			
 		}
 
 		$this->display('addmenu');
@@ -1588,8 +1576,5 @@ class IndexController extends CommonController
 			}
 		}
 	}
-	
-	
-	
 	
 }
