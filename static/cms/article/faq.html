@@ -22,7 +22,6 @@
                   <div class="col-lg-6">
                     <div class="faq-section-title wow fadeInUp">
                       <img src="{$tpl}static/picture/faq-text.png" alt="" />
-
                       <h4 class="title wow fadeInUp">
                         一些问题和回答,
                         <span class="bold-text">请看这里.</span>
@@ -32,8 +31,7 @@
                   <div class="col-lg-6">
                     <div class="faq-content-wrap">
                       <div class="accordion" id="accordionExample">
-					   
-						{loop table="article" tid="$type['id']" isshow="1" orderby="orders desc,id asc" as="v"}
+						            {loop table="article" tid="$type['id']" isshow="1" orderby="orders desc,id asc" as="v"}
                         <div class="accordion-item wow fadeInUp" >
                           <h2 class="accordion-header" id="headingOne{$v_n}">
                             <button
@@ -58,20 +56,12 @@
                             </div>
                           </div>
                         </div>
-                        
-						{/loop}
-						
-						
-					  </div>
+						            {/loop}
+					            </div>
                     </div>
                   </div>
-                
-				</div>
-				
-			
-				
+				        </div>
               </div>
-			  
             </div>
           </div>
         </div>

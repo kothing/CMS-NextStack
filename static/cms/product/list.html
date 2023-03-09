@@ -17,35 +17,35 @@
         <!-- Blog Details Wrapper Start -->
         <div class="blog-details-wrapper section-space--ptb_80">
           <div class="container">
-			
             <div class="row row--17">
-			
-            <div class="row">
-			<ul class="filter-bar">
-			{screen molds="product"   orderby="orders desc"  as="s"}
-				<li>
-				<div class="filter-s">
-				<label>{$s['fieldname']}</label>
-				<a href="{$s['url']}" {if(!isset($filters[$s['field']]))}class="is-checked" {/if}><span class="filter-text">全部</span></a>
-				{foreach $s['list'] as $ss}
-				<a href="{$ss['url']}"
-				{if(isset($filters[$s['field']]) && strpos(','.$filters[$s['field']].',',','.$ss['key'].',')!==false)} class="is-checked" {/if}	 
-				><span class="filter-text">{$ss['value']}</span></a>
-				{/foreach}
-				</div>
-				</li>
-			{/screen}
-			</ul>
-			</div>
-			
-			
-			{if($lists)}
-			{foreach $lists as $v}
+							<div class="row">
+								<ul class="filter-bar">
+								{screen molds="product"   orderby="orders desc"  as="s"}
+									<li>
+									<div class="filter-s">
+									<label>{$s['fieldname']}</label>
+									<a href="{$s['url']}" {if(!isset($filters[$s['field']]))}class="is-checked" {/if}><span class="filter-text">全部</span></a>
+									{foreach $s['list'] as $ss}
+									<a href="{$ss['url']}"
+									{if(isset($filters[$s['field']]) && strpos(','.$filters[$s['field']].',',','.$ss['key'].',')!==false)} class="is-checked" {/if}	 
+									><span class="filter-text">{$ss['value']}</span></a>
+									{/foreach}
+									</div>
+									</li>
+								{/screen}
+								</ul>
+							</div>
+						{if($lists)}
+						{foreach $lists as $v}
               <div class="col-lg-4 col-md-6 col-sm-6">
                 <!-- Single Following Post Start -->
                 <div class="single-following-post wow fadeInUp" >
                   <a href="{$v['url']}" class="following-post-thum">
+										{if($v['litpic'])}
                     <img src="{$v['litpic']}" alt="{$v['title']}" />
+										{else}
+										<img src="{$tpl}static/images/default-detail.png" alt="{$v['title']}" />
+										{/if} 
                   </a>
                   <div class="following-post-content">
                     <div class="following-blog-post-top">
