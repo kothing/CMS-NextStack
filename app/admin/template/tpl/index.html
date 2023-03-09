@@ -82,9 +82,9 @@
           {foreach $left_layout as $v}
             <li>
                 <a href="javascript:;">
-                    <i class="iconfont">{fun htmlspecialchars_decode($v['icon'])}</i>
-                    <cite>{fun NEXTLANG($v['name'])}</cite>
-                    <i class="iconfont nav_right">&#xe6a7;</i>
+                  <i class="iconfont">{fun htmlspecialchars_decode($v['icon'])}</i>
+                  <cite>{fun NEXTLANG($v['name'])}</cite>
+                  <i class="iconfont nav_right">&#xe6a7;</i>
                 </a>
                 <ul class="sub-menu">
                   {foreach $v['nav'] as $vv}
@@ -101,7 +101,7 @@
                   {if(strpos($vv['value'],'class')!==false)}
                   <a _href="{$classnav[$vv['value']]['act']}" >{if($vv['icon'])}<i class="iconfont">{fun htmlspecialchars_decode($vv['icon'])}</i>{/if}<cite>{fun NEXTLANG($vv['title'])}</cite></a>
                   {else}
-                        <a _href="{fun U($actions[$vv['value']]['fc'])}">{if($vv['icon'])}<i class="iconfont">{fun htmlspecialchars_decode($vv['icon'])}</i>{/if}<cite>{fun NEXTLANG($vv['title'])}</cite></a>
+                  <a _href="{fun U($actions[$vv['value']]['fc'])}">{if($vv['icon'])}<i class="iconfont">{fun htmlspecialchars_decode($vv['icon'])}</i>{/if}<cite>{fun NEXTLANG($vv['title'])}</cite></a>
 						      {/if}
                 </li >
 				        {/if}
