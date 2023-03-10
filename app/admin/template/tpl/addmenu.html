@@ -2,14 +2,14 @@
 <html>
     
     <head>
-       <meta charset="UTF-8">
-        {include="style"}
-		{include="edit"}
-		<style>
-		.preview{
-			width:100px;
-		}
-		</style>
+			<meta charset="UTF-8">
+			{include="style"}
+			{include="edit"}
+			<style>
+				.preview{
+					width:100px;
+				}
+			</style>
     </head>
     
     <body>
@@ -71,7 +71,7 @@
 							</td>
 							<td><input type="text" name="title[]"  placeholder="{fun NEXTLANG('不填默认栏目名称')}" autocomplete="off" class="layui-input"></td>
 							<td><input type="text" name="litpic[]"  placeholder="{fun NEXTLANG('不填默认空')}" autocomplete="off" class="layui-input">
-							<img class="preview" onerror="this.src='{__Tpl_style__}/style/images/nopic.jpg'" src="">
+							<img class="preview" onerror="this.src='{__Tpl_style__}/assets/images/nopic.jpg'" src="">
 							<button type="button" class="layui-btn layui-btn-sm uploadimg">
 								<i class="layui-icon">&#xe67c;</i>{fun NEXTLANG('上传图片')}
 							</button>
@@ -234,7 +234,7 @@
 								'</select>'+
 							  '</td>'+
 							  '<td><input type="text" name="title[]"  placeholder="{fun NEXTLANG('不填默认栏目名称')}" autocomplete="off" class="layui-input"></td>'+
-							  '<td><input type="text" name="litpic[]"  placeholder="{fun NEXTLANG('不填默认空')}" autocomplete="off" class="layui-input"><img class="preview" onerror="this.src=\'{__Tpl_style__}/style/images/nopic.jpg\'" src=""><button type="button" class="layui-btn layui-btn-sm uploadimg_'+rand+'"><i class="layui-icon">&#xe67c;</i>{fun NEXTLANG('上传图片')}</button></td>'+
+							  '<td><input type="text" name="litpic[]"  placeholder="{fun NEXTLANG('不填默认空')}" autocomplete="off" class="layui-input"><img class="preview" onerror="this.src=\'{__Tpl_style__}/assets/images/nopic.jpg\'" src=""><button type="button" class="layui-btn layui-btn-sm uploadimg_'+rand+'"><i class="layui-icon">&#xe67c;</i>{fun NEXTLANG('上传图片')}</button></td>'+
 							  '<td><input type="text" name="gourl[]"  placeholder="{fun NEXTLANG('自定义链接则需要填写')}" autocomplete="off" class="layui-input"></td>'+
 							  '<td>'+
 								'<select name="target[]" >'+

@@ -3,15 +3,15 @@
   
   <head>
     <meta charset="UTF-8">
-	{include="style"}
-	{include="edit"}
+		{include="style"}
+		{include="edit"}
   </head>
   
   <body>
     <div class="x-body">
-        <form class="layui-form layui-form-pane"  lay-filter="nextform">
+      <form class="layui-form layui-form-pane"  lay-filter="nextform">
 		
-		<div class="layui-tab">
+			<div class="layui-tab">
 			  <ul class="layui-tab-title">
 				<li class="layui-this">{fun NEXTLANG('基本')}</li>
 				<li>{fun NEXTLANG('扩展')}</li>
@@ -20,20 +20,20 @@
 			  <div class="layui-tab-content">
 				<div class="layui-tab-item layui-show">
 				<div class="layui-form-item">
-			<label for="molds" class="layui-form-label">
-				<span class="x-red">*</span>{fun NEXTLANG('选择模块')}
-			</label>
-			<div class="layui-input-inline">
-				<select name="molds" id="molds" lay-filter="molds" >
-			   
-			   {foreach $molds as $v}
-			   {if($v['biaoshi']!='classtype' && $v['isshowclass']==1)}
-			   <option {if($biaoshi==$v['biaoshi'])} selected="selected" {/if}  value="{$v['biaoshi']}">{$v['name']}</option>
-			   {/if}
-			   {/foreach}
-			
-			   </select>
-			</div>
+					<label for="molds" class="layui-form-label">
+						<span class="x-red">*</span>{fun NEXTLANG('选择模块')}
+					</label>
+					<div class="layui-input-inline">
+						<select name="molds" id="molds" lay-filter="molds" >
+						
+						{foreach $molds as $v}
+						{if($v['biaoshi']!='classtype' && $v['isshowclass']==1)}
+						<option {if($biaoshi==$v['biaoshi'])} selected="selected" {/if}  value="{$v['biaoshi']}">{$v['name']}</option>
+						{/if}
+						{/foreach}
+					
+						</select>
+					</div>
         </div>
 		<div class="layui-form-item">
 			<label for="pid" class="layui-form-label">
@@ -69,7 +69,7 @@
                   
               </div>
           </div>
-		  <div class="layui-form-item">
+		  		<div class="layui-form-item">
               <label for="seo_classname" class="layui-form-label">
                   <span class="x-red"></span>{fun NEXTLANG('SEO标题')}
               </label>
@@ -81,7 +81,7 @@
                   
               </div>
           </div>
-		  <div class="layui-form-item">
+		  		<div class="layui-form-item">
               <label for="keywords" class="layui-form-label">
                   <span class="x-red"></span>{fun NEXTLANG('关键词')}
               </label>
@@ -107,28 +107,28 @@
 					<button class="layui-btn layui-btn-primary" id="litpic_upload" type="button" >{fun NEXTLANG('选择图片')}</button>
 				</div>
 				<div class="layui-input-inline">
-					<img id="litpic_img" class="img-responsive img-thumbnail" style="max-width: 200px;" src="" onerror="javascipt:this.src='{__Tpl_style__}/style/images/nopic.jpg'; this.title='{fun NEXTLANG('图片未找到')}';this.onerror=''">
+					<img id="litpic_img" class="img-responsive img-thumbnail" style="max-width: 200px;" src="" onerror="javascipt:this.src='{__Tpl_style__}/assets/images/nopic.jpg'; this.title='{fun NEXTLANG('图片未找到')}';this.onerror=''">
 					<button type="button" onclick="deleteImage(this)" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger " title="{fun NEXTLANG('删除这张图片')}" >{fun NEXTLANG('删除')}</button>
 				</div>
 			</div>
 				<span id="content_fields"></span>
 				<div class="layui-form-item layui-form-text">
-                        <label for="description" class="layui-form-label">
-                            <span class="x-red"></span>{fun NEXTLANG('简介')}
-                        </label>
-                        <div class="layui-input-block">
-                            <textarea  name="description" class="layui-textarea"></textarea>
-                        </div>
-                    </div>
+					<label for="description" class="layui-form-label">
+							<span class="x-red"></span>{fun NEXTLANG('简介')}
+					</label>
+					<div class="layui-input-block">
+							<textarea  name="description" class="layui-textarea"></textarea>
+					</div>
+				</div>
 				 <div class="layui-form-item layui-form-text">
-                    <label for="body" class="layui-form-label">
-                        <span class="x-red"></span>{fun NEXTLANG('内容')}
-                    </label>
-                    <div class="layui-input-block" style="clear:both;" >
+						<label for="body" class="layui-form-label">
+								<span class="x-red"></span>{fun NEXTLANG('内容')}
+						</label>
+						<div class="layui-input-block" style="clear:both;" >
 					   {include="content"}
-                    </div>
-                </div>
-				 
+						</div>
+					</div>
+	
 				</div>
 				<div class="layui-tab-item">
 				
@@ -176,7 +176,7 @@
                 {fun NEXTLANG('填写栏目命名后，系统将自动用作该栏目URL链接，如：news，访问该栏目链接：')}{fun get_domain()}/news.html。{fun NEXTLANG('多个相同URL，将覆盖前面的栏目')}
               </div>
           </div>
-		  <div class="layui-form-item">
+		  		<div class="layui-form-item">
               <label for="lists_num" class="layui-form-label">
                   <span class="x-red"></span>{fun NEXTLANG('列表显示')}
               </label>
@@ -188,7 +188,7 @@
                   {fun NEXTLANG('设置列表页显示的内容条数')}
               </div>
           </div>
-		  <div class="layui-form-item">
+		  		<div class="layui-form-item">
               <label for="lists_html" class="layui-form-label">
                   <span class="x-red"></span>{fun NEXTLANG('栏目模板')}
               </label>
@@ -198,7 +198,7 @@
               	</select>
                   
               </div>
-			  <div class="layui-input-inline">
+			  			<div class="layui-input-inline">
                   <input type="text" id="lists_html_write" name="lists_html_write" placeholder="{fun NEXTLANG('手动填写，不填请留空')}" value=""
                   autocomplete="off" class="layui-input">
               </div>
@@ -206,7 +206,7 @@
                  {fun NEXTLANG('请将模板文件放到对应的模块文件夹下面，如文章(article)模块，那么就要在当前模板目录的article文件夹下面。默认栏目首页')}
               </div>
           </div>
-		  <div class="layui-form-item">
+		  		<div class="layui-form-item">
               <label for="details_html" class="layui-form-label">
                   <span class="x-red"></span>{fun NEXTLANG('详情页模板')}
               </label>
@@ -215,7 +215,7 @@
               	</select>
                 
               </div>
-			  <div class="layui-input-inline">
+			  			<div class="layui-input-inline">
                   <input type="text" id="details_html_write" name="details_html_write" placeholder="{fun NEXTLANG('手动填写，不填请留空')}" value=""
                   autocomplete="off" class="layui-input">
               </div>
@@ -223,7 +223,7 @@
                  {fun NEXTLANG('请将模板文件放到对应的模块文件夹下面，如文章(article)模块，那么就要在当前模板目录的article文件夹下面，列表内的详情页。')}
               </div>
           </div>
-		   <div class="layui-form-item">
+		   		<div class="layui-form-item">
               <label for="gourl" class="layui-form-label">
                   <span class="x-red"></span>{fun NEXTLANG('栏目外链')}
               </label>
@@ -313,7 +313,7 @@
 			  get_fields_ext({$pid});
 		})
 		function deleteImage(elm){
-			$(elm).prev().attr("src", "{__Tpl_style__}/style/images/nopic.jpg");
+			$(elm).prev().attr("src", "{__Tpl_style__}/assets/images/nopic.jpg");
 			$('#litpic').val("");
 		}
         layui.use(['form','layer','upload'], function(){

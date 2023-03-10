@@ -3,7 +3,7 @@
   
   <head>
     <meta charset="UTF-8">
-	{include="style"}
+		{include="style"}
     {include="edit"}
   </head>
   
@@ -104,7 +104,7 @@
 					<button class="layui-btn layui-btn-primary" id="litpic_upload" type="button" >{fun NEXTLANG('选择图片')}</button>
 				</div>
 				<div class="layui-input-inline">
-					<img id="litpic_img" class="img-responsive img-thumbnail" style="max-width: 200px;" src="{$data['litpic']}" onerror="javascipt:this.src='{__Tpl_style__}/style/images/nopic.jpg'; this.title='{fun NEXTLANG('图片未找到')}';this.onerror=''">
+					<img id="litpic_img" class="img-responsive img-thumbnail" style="max-width: 200px;" src="{$data['litpic']}" onerror="javascipt:this.src='{__Tpl_style__}/assets/images/nopic.jpg'; this.title='{fun NEXTLANG('图片未找到')}';this.onerror=''">
 					<button type="button" onclick="deleteImage(this)" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger " title="{fun NEXTLANG('删除这张图片')}" >{fun NEXTLANG('删除')}</button>
 				</div>
 			</div>
@@ -317,7 +317,7 @@
 	
 		
 		function deleteImage(elm){
-			$(elm).prev().attr("src", "{__Tpl_style__}/style/images/nopic.jpg");
+			$(elm).prev().attr("src", "{__Tpl_style__}/assets/images/nopic.jpg");
 			$('#litpic').val("");
 		}
         layui.use(['form','layer','upload'], function(){

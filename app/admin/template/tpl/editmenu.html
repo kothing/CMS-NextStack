@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
-    
     <head>
-       <meta charset="UTF-8">
-        {include="style"}
-		{include="edit"}
-		
+			<meta charset="UTF-8">
+			{include="style"}
+			{include="edit"}
     </head>
     
     <body>
-	 <div class="x-nav">
+	 		<div class="x-nav">
             <span class="layui-breadcrumb">
               <a><cite>{fun NEXTLANG('首页')}</cite></a>
               <a><cite>{fun NEXTLANG('导航管理')}</cite></a>
@@ -69,7 +67,7 @@
 							  </td>
 							  <td><input type="text" name="title[]" value="{$s['title']}" placeholder="{fun NEXTLANG('不填默认栏目名称')}" autocomplete="off" class="layui-input"></td>
 							  <td><input type="text" name="litpic[]" value="{$s['litpic']}"  placeholder="{fun NEXTLANG('不填默认空')}" autocomplete="off" class="layui-input">
-								<img class="preview" onerror="this.src='{__Tpl_style__}/style/images/nopic.jpg'" src="{$s['litpic']}">
+								<img class="preview" onerror="this.src='{__Tpl_style__}/assets/images/nopic.jpg'" src="{$s['litpic']}">
 							    <button type="button" class="layui-btn layui-btn-sm uploadimg">
 								  <i class="layui-icon">&#xe67c;</i>{fun NEXTLANG('上传图片')}
 								</button>
@@ -105,7 +103,7 @@
 							  </td>
 							  <td><input type="text" name="title[]"  placeholder="{fun NEXTLANG('不填默认栏目名称')}" autocomplete="off" class="layui-input"></td>
 							  <td><input type="text" name="litpic[]"  placeholder="{fun NEXTLANG('不填默认空')}" autocomplete="off" class="layui-input">
-								<img class="preview" onerror="this.src='{__Tpl_style__}/style/images/nopic.jpg'" src="">
+								<img class="preview" onerror="this.src='{__Tpl_style__}/assets/images/nopic.jpg'" src="">
 							    <button type="button" class="layui-btn layui-btn-sm uploadimg">
 								  <i class="layui-icon">&#xe67c;</i>{fun NEXTLANG('上传图片')}
 								</button>
@@ -270,7 +268,7 @@
 								'</select>'+
 							  '</td>'+
 							  '<td><input type="text" name="title[]"  placeholder="{fun NEXTLANG('不填默认栏目名称')}" autocomplete="off" class="layui-input"></td>'+
-							  '<td><input type="text" name="litpic[]"  placeholder="{fun NEXTLANG('不填默认空')}" autocomplete="off" class="layui-input"><img class="preview" onerror="this.src=\'{__Tpl_style__}/style/images/nopic.jpg\'" src=""><button type="button" class="layui-btn layui-btn-sm uploadimg_'+rand+'"><i class="layui-icon">&#xe67c;</i>{fun NEXTLANG('上传图片')}</button></td>'+
+							  '<td><input type="text" name="litpic[]"  placeholder="{fun NEXTLANG('不填默认空')}" autocomplete="off" class="layui-input"><img class="preview" onerror="this.src=\'{__Tpl_style__}/assets/images/nopic.jpg\'" src=""><button type="button" class="layui-btn layui-btn-sm uploadimg_'+rand+'"><i class="layui-icon">&#xe67c;</i>{fun NEXTLANG('上传图片')}</button></td>'+
 							  '<td><input type="text" name="gourl[]"  placeholder="{fun NEXTLANG('自定义链接则需要填写')}" autocomplete="off" class="layui-input"></td>'+
 							  '<td>'+
 								'<select name="target[]" >'+

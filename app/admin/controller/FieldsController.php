@@ -629,7 +629,7 @@ class FieldsController extends CommonController
 						<button class="layui-btn layui-btn-primary" id="LAY_'.$v['field'].'_upload" type="button" >'.NEXTLANG('选择图片').'</button>
 					</div>
 					<div class="layui-input-inline">
-						<img id="'.$v['field'].'_img" class="img-responsive img-thumbnail" style="max-width: 200px;" src="'.$data[$v['field']].'" onerror="javascipt:this.src=\''.Tpl_style.'/style/images/nopic.jpg\'; this.title=\''.NEXTLANG('图片未找到').'\';this.onerror=\'\'">
+						<img id="'.$v['field'].'_img" class="img-responsive img-thumbnail" style="max-width: 200px;" src="'.$data[$v['field']].'" onerror="javascipt:this.src=\''.Tpl_style.'/assets/images/nopic.jpg\'; this.title=\''.NEXTLANG('图片未找到').'\';this.onerror=\'\'">
 						<button type="button" onclick="deleteImage_auto(this,\''.$v['field'].'\')" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger " title="'.NEXTLANG('删除这张图片').'" >'.NEXTLANG('删除').'</button>
 					</div>';
 				if($v['tips']){
