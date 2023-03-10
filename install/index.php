@@ -362,11 +362,11 @@ switch($act){
 			   		exit;
 			   }
 		    }
-			if($_POST['admin_pass']!='' && $_POST['admin_name']!=''){
-				$sql="UPDATE `next_level` SET `name`='".$_POST['admin_name']."',`pass`='".md5(md5($_POST['admin_pass']).'YF')."' , `regtime` = '".time()."' , `logintime` = ".time()."   WHERE id=1";
-				$sql = str_replace('next_',$config['db']['prefix'],$sql);
-				$db->exec($sql);
-			}
+				if($_POST['admin_pass']!='' && $_POST['admin_name']!=''){
+					$sql="UPDATE `next_level` SET `name`='".$_POST['admin_name']."',`pass`='".md5(md5($_POST['admin_pass']).'YF')."' , `regtime` = '".time()."' , `logintime` = ".time()."   WHERE id=1";
+					$sql = str_replace('next_',$config['db']['prefix'],$sql);
+					$db->exec($sql);
+				}
 
 		    echo json_encode(array('count'=>100,"start"=>0,"to"=>100,'code'=>0));
 			exit;
