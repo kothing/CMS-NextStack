@@ -20,58 +20,70 @@
                 <!-- blog details Post Start -->
                 <div class="blog-details-post-wrap">
                   <div class="blog-details-thum clean-block clean-product">
-										<div class="row">
-											<div class="col-md-6">
-												<div class="gallery">
-													<div class="sp-wrap">
-														{if($next['pictures'])}
-														{php $pictures = explode('||',$next['pictures'])/}
-														{foreach $pictures as $v}
-														{php $pic = explode('|',$v);/}
-														<a href="{$pic[0]}">
-															<img class="img-fluid d-block mx-auto" alt="{$pic[1]}" title="{$pic[1]}" src="{$pic[0]}">
-														</a>
-														{/foreach}
-														{else}
-														<a href="{$next['litpic']}">
-															<img class="img-fluid d-block mx-auto" alt="{$next['title']}" title="{$next['title']}" src="{$next['litpic']}" />
-														</a>
-														{/if}
-													</div>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="info">
-													<h3>{$next['title']}</h3>
-													<p>
-														{if($next['tags'])}
-														{foreach explode(',',$next['tags']) as $v}
-														{if($v)}<span class="badge bg-primary">{$v}</span>{/if}
-														{/foreach}
-														{/if}
-													</p>
-													<div class="price">
-														￥{$next['price']} <span class="nsbar">
-														{if(checkCollect($type['id'],$next['id']))}
-														<a title="已收藏" onclick="collect({$type['id']},{$next['id']})">
-															<img src="{$tpl}static/picture/collect.png" alt="" />
-														</a>
-														{else}
-														<a title="点击收藏" onclick="collect({$type['id']},{$next['id']})">
-															<img src="{$tpl}static/picture/small-bookmark.png" alt="" />
-														</a>
-														{/if}
-														
-														{if(checkLikes($type['id'],$next['id']))}
-														<a title="已点赞" onclick="likes({$type['id']},{$next['id']})">
-															<img src="{$tpl}static/picture/zan.png" alt="" />
-														</a>
-														{else}
-														<a title="点赞" onclick="likes({$type['id']},{$next['id']})">
-															<img src="{$tpl}static/picture/heart.png" alt="" />
-														</a>
-														{/if}
-														</span>
+          					<div class="row">
+          						<div class="col-md-6">
+          							<div class="gallery">
+          								<div class="sp-wrap">
+          									{if($next['pictures'])}
+          									{php $pictures = explode('||',$next['pictures'])/}
+          									{foreach $pictures as $v}
+          									{php $pic = explode('|',$v);/}
+          										{if($pic[0])}
+          										<a href="{$pic[0]}">
+          											<img class="img-fluid d-block mx-auto" alt="{$pic[1]}" title="{$pic[1]}" src="{$pic[0]}">
+          										</a>
+          										{else}
+          										<a href="{$tpl}static/images/default-detail.png">
+          											<img class="img-fluid d-block mx-auto" alt="{$pic[1]}" title="{$pic[1]}" src="{$tpl}static/images/default-detail.png">
+          										</a>
+          										{/if}
+          									{/foreach}
+          									{else}
+          										{if($next['litpic'])}
+          										<a href="{$next['litpic']}">
+          											<img class="img-fluid d-block mx-auto" alt="{$next['title']}" title="{$next['title']}" src="{$next['litpic']}" />
+          										</a>
+          										{else}
+          											<a href="{$tpl}static/images/default-detail.png">
+          												<img class="img-fluid d-block mx-auto" alt="{$pic[1]}" title="{$pic[1]}" src="{$tpl}static/images/default-detail.png">
+          											</a>
+          										{/if}
+          									{/if}
+          								</div>
+          							</div>
+          						</div>
+          						<div class="col-md-6">
+          							<div class="info">
+          								<h3>{$next['title']}</h3>
+          								<p>
+          									{if($next['tags'])}
+          									{foreach explode(',',$next['tags']) as $v}
+          									{if($v)}<span class="badge bg-primary">{$v}</span>{/if}
+          									{/foreach}
+          									{/if}
+          								</p>
+          								<div class="price">
+          									￥{$next['price']} <span class="nsbar">
+          									{if(checkCollect($type['id'],$next['id']))}
+          									<a title="已收藏" onclick="collect({$type['id']},{$next['id']})">
+          										<img src="{$tpl}static/picture/collect.png" alt="" />
+          									</a>
+          									{else}
+          									<a title="点击收藏" onclick="collect({$type['id']},{$next['id']})">
+          										<img src="{$tpl}static/picture/small-bookmark.png" alt="" />
+          									</a>
+          									{/if}
+          									
+          									{if(checkLikes($type['id'],$next['id']))}
+          									<a title="已点赞" onclick="likes({$type['id']},{$next['id']})">
+          										<img src="{$tpl}static/picture/zan.png" alt="" />
+          									</a>
+          									{else}
+          									<a title="点赞" onclick="likes({$type['id']},{$next['id']})">
+          										<img src="{$tpl}static/picture/heart.png" alt="" />
+          									</a>
+          									{/if}
+          									</span>
                           </div>
 													<div class="feature">
 														<table class="table table-bordered">
@@ -85,7 +97,9 @@
 													</div>
 													<div class="buy-bar">
 														<p>库存：{$next['stock_num']} 件 </p>
-														<button onclick="addcart({$type['id']},{$next['id']},1)" class="buy btn" type="button"><i class="icon-basket"></i>加入购物车</button>
+														<button onclick="addcart({$type['id']},{$next['id']},1)" class="buy btn" type="button">
+														    <i class="icon-basket"></i>加入购物车
+														</button>
 													</div>
 													<div class="summary">
 														{$next['description']}

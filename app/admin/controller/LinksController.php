@@ -53,8 +53,7 @@ class LinksController extends CommonController
 			$get_sql = ($res['fields_search_check']!='') ? (' and '.$res['fields_search_check']) : '';
 			$sql .= $get_sql;
 			if($this->frparam('tid')){
-                $sql .= ' and tid in('.$this->frparam('tid').')';
-				
+        $sql .= ' and tid in('.$this->frparam('tid').')';
 			}
 			
 			$page = new Page($molds);
@@ -80,7 +79,6 @@ class LinksController extends CommonController
 			JsonReturn(['code'=>0,'data'=>$ajaxdata,'count'=>$page->sum]);
 		}
 		
-		
 		$this->display('links-list');
 		
 	}
@@ -93,7 +91,6 @@ class LinksController extends CommonController
 			$data = $this->frparam();
 			$data['tid'] = $this->frparam('tid',0,0);
 			
-			
 			$data = get_fields_data($data,$molds);
 			
 			//处理自定义URL
@@ -101,7 +98,6 @@ class LinksController extends CommonController
 				if(M('customurl')->find(['molds'=>$molds,'url'=>$data['ownurl']])){
 					JsonReturn(array('code'=>1,'msg'=>NEXTLANG('已存在相同的自定义URL！')));
 				}
-				
 			}
 			$data['userid'] = $this->admin['id'];
 			$data['molds'] = $molds;
@@ -113,11 +109,8 @@ class LinksController extends CommonController
 				JsonReturn(array('code'=>0,'msg'=>NEXTLANG('添加成功,继续添加~'),'url'=>U('Links/addlinks',['tid'=>$data['tid'],'molds'=>$molds])));
 				
 			}else{
-				
 				JsonReturn(array('code'=>1,'msg'=>NEXTLANG('添加失败！')));
-				
 			}
-			
 		}
 
 		$this->classtypes = $this->classtypetree;
@@ -268,16 +261,15 @@ class LinksController extends CommonController
 		$id = $this->frparam('id');
 		$molds = 'links';
 		if($id){
-		    $data = M($molds)->find(['id'=>$id]);
+			$data = M($molds)->find(['id'=>$id]);
 			if(M($molds)->delete(['id'=>$id])){
-                $w['molds'] = 'links';
-                $w['data'] = serialize($data);
-                $w['title'] = '['.$data['id'].']'.$data['title'];
-                $w['addtime'] = time();
-                M('recycle')->add($w);
+				$w['molds'] = 'links';
+				$w['data'] = serialize($data);
+				$w['title'] = '['.$data['id'].']'.$data['title'];
+				$w['addtime'] = time();
+				M('recycle')->add($w);
 				JsonReturn(array('code'=>0,'msg'=>NEXTLANG('删除成功！')));
 			}else{
-				
 				JsonReturn(array('code'=>1,'msg'=>NEXTLANG('删除失败！')));
 			}
 		}
