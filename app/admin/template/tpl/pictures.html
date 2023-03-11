@@ -118,7 +118,9 @@
                         </td>
                         
 						<td>
-                           {if(in_array($v['filetype'],['png','gif','jpg','jpeg']))}<img src="{$v['litpic']}" width="100px" />{else}{$v['filetype']}{/if}
+                           {if(in_array($v['filetype'],['png','gif','jpg','jpeg']))}
+													 <img src="{$v['litpic']}" width="100px" />
+													 {else}{$v['filetype']}{/if}
                         </td>
                         <td>
 						 {if($v['tid']==0)}-{else}{$classtypedata[$v['tid']]['classname']}{/if}
