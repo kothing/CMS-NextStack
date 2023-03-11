@@ -27,7 +27,6 @@
     <form class="layui-form layui-form-pane">
       <input type="hidden" name="go" value="1" />
       <input type="hidden" name="id" value="{$data['id']}" />
-
       <div class="layui-tab">
         <ul class="layui-tab-title">
           <li class="layui-this">{fun NEXTLANG('基本信息')}</li>
@@ -70,8 +69,8 @@
   </div>
 
   <script>
-    { include = "fields" }
-    layui.use(['laydate', 'form', 'layer', 'upload'], function () {
+    {include="fields"}
+    layui.use(['laydate','form','layer','upload'], function() {
       $ = layui.jquery;
       var form = layui.form;
       var layer = layui.layer;
@@ -79,23 +78,22 @@
       var upload = layui.upload;
 
       //监听提交
-      form.on('submit(save)', function (data) {
-        $.post("{fun U('Links/editlinks',array('molds'=>$molds['biaoshi']))}", data.field, function (r) {
+      form.on('submit(save)', function(data) {
+        $.post("{fun U('Links/editlinks',array('molds'=>$molds['biaoshi']))}", data.field, function(r) {
           var r = JSON.parse(r);
           if (r.code == 0) {
-
             layer.confirm(r.msg, {
               btn: ['{fun NEXTLANG("返回列表")}', '{fun NEXTLANG("取消")}'] //按钮
-            }, function () {
+            }, function() {
               // 获得frame索引
               { if ($webconf['admintpl'] == 'tpl')}
               window.location.href = "{fun U('Links/index',['molds'=>$molds['biaoshi']])}";
               {else }
               parent.location.reload();
               {/if}
-              }, function() {
-                //
-              });
+            }, function() {
+              //
+            });
           } else {
             layer.alert(r.msg, { icon: 5 });
           }

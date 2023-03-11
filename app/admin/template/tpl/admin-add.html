@@ -132,21 +132,18 @@
 		</div>
     </div>
     <script>
-		{include="fields"}
-		$(function() {
-			
-			get_fields({$tid});
-			get_fields_ext({$tid});
-
-		})
-        layui.use(['form','layer'], function(){
-            $ = layui.jquery;
-          	var form = layui.form,
-				layer = layui.layer;
-        
-          	//监听提交
-          	form.on('submit(add)', function(data){
-           		$.post("{fun U('adminadd')}",data.field,function(res){
+			{include="fields"}
+			$(function() {
+				get_fields({$tid});
+				get_fields_ext({$tid});
+			});
+			layui.use(['form','layer'], function(){
+				$ = layui.jquery;
+				var form = layui.form;
+				var layer = layui.layer;
+				//监听提交
+				form.on('submit(add)', function(data){
+				$.post("{fun U('adminadd')}",data.field,function(res){
 					var res = JSON.parse(res);
 					if(res.code==1){
 						layer.msg(res.msg);
@@ -157,21 +154,21 @@
 							window.location.href="{fun U('adminlist')}";
 							{else}
 							var index = parent.layer.getFrameIndex(window.name);
-								//关闭当前frame
-								parent.layer.close(index);
-								parent.location.href="{fun U('adminlist')}";
+							//关闭当前frame
+							parent.layer.close(index);
+							parent.location.href="{fun U('adminlist')}";
 							{/if}
 						});
 					}
 				});
 				return false;
-          	});
+			});
           
 			form.on('select(gid)', function(data){
 			  get_fields(data.value);
 			  get_fields_ext(data.value);
 			});
-        });
+    });
     </script>
    
   </body>

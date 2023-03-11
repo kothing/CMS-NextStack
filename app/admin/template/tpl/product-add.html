@@ -148,13 +148,13 @@
 	</div>
 
 	<script>
-		{ include = "fields" }
+		{include="fields"}
 		$(function () {
-			get_fields({ $tid });
-			get_fields_ext({ $tid });
+			get_fields({$tid});
+			get_fields_ext({$tid});
 		});
 
-		layui.use(['laydate', 'form', 'layer', 'upload'], function () {
+		layui.use(['laydate','form','layer','upload'], function() {
 			$ = layui.jquery;
 			var form = layui.form;
 			var layer = layui.layer;
@@ -162,21 +162,21 @@
 			var upload = layui.upload;
 
 			//监听提交
-			form.on('submit(save)', function (data) {
+			form.on('submit(save)', function(data) {
 				if ($("#tids").length > 0) {
 					var tids_str = tids_obj.getValue('valueStr');
-					if (tids_str != '') {
+					if (tids_str !== '') {
 						data.field.tids = ',' + tids_str + ',';
 					}
 				}
-				$.post("{fun U('addproduct')}", data.field, function (r) {
+				$.post("{fun U('addproduct')}", data.field, function(r) {
 					localStorage.setItem('cachedata', '');
 					var r = JSON.parse(r);
-					if (r.code == 0) {
+					if (r.code === 0) {
 						layer.confirm(r.msg, {
-							btn: ['{fun NEXTLANG("返回")}', '{fun NEXTLANG("确定")}'] //按钮
-						}, function () {
-							{if($webconf['admintpl'] == 'tpl')}
+							btn: ['{fun NEXTLANG("返回")}','{fun NEXTLANG("确定")}'] //按钮
+						}, function() {
+							{if($webconf['admintpl'] === 'tpl')}
 							window.location.href = "{fun U('Product/productlist')}";
 							{else}
 							parent.location.reload();
@@ -192,16 +192,16 @@
 				return false;
 			});
 
-			form.on('select(tid)', function (data) {
+			form.on('select(tid)', function(data) {
 				var alldata = form.val("nextform");
 				localStorage.setItem('cachedata', JSON.stringify(alldata));
 				get_fields(data.value);
 				get_fields_ext(data.value);
 			});
 
-			$("#resetdata").click(function () {
+			$("#resetdata").click(function() {
 				var alldata = localStorage.getItem('cachedata');
-				if (alldata != '') {
+				if (alldata !== '') {
 					form.val("nextform", JSON.parse(alldata));
 				}
 			})

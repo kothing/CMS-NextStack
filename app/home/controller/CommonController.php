@@ -397,8 +397,6 @@ class CommonController extends Controller
 	}
 
 	function get_fields(){
-		
-		
 		$molds = strtolower($this->frparam('molds',1,'message'));
 		if($molds!='message'){
 			$this->checklogin();

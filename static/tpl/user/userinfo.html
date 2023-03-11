@@ -51,7 +51,7 @@
 
 {include="user/footer"}
 <script type="text/javascript">
-function get_fields(tid,id){
+  function get_fields(tid,id){
     var id = arguments[1]?arguments[1]:0;
     $.post("{fun U('common/get_fields')}",{molds:'member',tid:tid,id:id},function(res){
       if(res.code==0){
@@ -71,52 +71,48 @@ function get_fields(tid,id){
       
     },'json');
   }
-$(function(){
-  get_fields(0,{$member['id']});
-})
-function checkform(){
-
+  $(function(){
+    get_fields(0,{$member['id']});
+  });
+  function checkform(){
     var password = $.trim($("#t_password").val());
     var repassword = $.trim($("#t_repassword").val());
-
     if(password!=repassword){
       alert('两次密码不同！');$("#t_password").focus();return false;
     }
     return true;
-}
-$(document).ready(function(){
-  $("#fileid").change(function(){
-    var form=document.getElementById("nextform");
-    var data =new FormData(form);
-	data.append('filename','file');
-    $.ajax({
-       url: "{fun U('user/uploads')}",//处理图片的文件路径
-       type: "POST",//传输方式
-       data: data,
-       dataType:"json",//返回格式为json
-       processData: false,  // 告诉jQuery不要去处理发送的数据
-       contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
-       success: function(response){
-        
-        if(response.code==0){
+  }
+  $(document).ready(function(){
+    $("#fileid").change(function(){
+      var form=document.getElementById("nextform");
+      var data =new FormData(form);
+      data.append('filename','file');
+      $.ajax({
+        url: "{fun U('user/uploads')}",//处理图片的文件路径
+        type: "POST",//传输方式
+        data: data,
+        dataType:"json",//返回格式为json
+        processData: false,  // 告诉jQuery不要去处理发送的数据
+        contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+        success: function(response){
           
-          var result = '';
-          result +='<img src="' + response['url'] + '" height="100"  />';
-          //$("#fileid").hide();
-         // $("#upload_ok").show();
-          $('.view_img').html(result);
-          $("#fileurl").val(response['url']);
-        }else{
-          alert(response.error);
+          if(response.code==0){
+            
+            var result = '';
+            result +='<img src="' + response['url'] + '" height="100"  />';
+            //$("#fileid").hide();
+          // $("#upload_ok").show();
+            $('.view_img').html(result);
+            $("#fileurl").val(response['url']);
+          }else{
+            alert(response.error);
+          }
+          
         }
-        
-       }
+      });
+      
     });
-    
   });
-
-  
-});
 </script>
 </body>
 </html>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <meta charset="UTF-8">
-			{include="style"}
-			<link rel="stylesheet" type="text/css" href="{__Tpl_style__}/assets/tags/jquery.tagsinput.css" />
-			<script type="text/javascript" charset="utf-8" src="{__Tpl_style__}/assets/tags/jquery.tagsinput.js"></script>
-			{include="edit"}
-    </head>
-    
-    <body>
+	<head>
+		<meta charset="UTF-8">
+		{include="style"}
+		<link rel="stylesheet" type="text/css" href="{__Tpl_style__}/assets/tags/jquery.tagsinput.css" />
+		<script type="text/javascript" charset="utf-8" src="{__Tpl_style__}/assets/tags/jquery.tagsinput.js"></script>
+		{include="edit"}
+	</head>
+	
+	<body>
 	  <div class="x-nav">
 			<span class="layui-breadcrumb">
 				<a><cite>{fun NEXTLANG('首页')}</cite></a>
@@ -123,34 +123,34 @@
 				</div>
 			</form>
 		</div>
+
 		<script>
 			{include="fields"}
-				layui.use(['laydate','form','layer','upload'], function(){
-					$ = layui.jquery;
-					var form = layui.form;
-					var layer = layui.layer;
-					var laydate = layui.laydate;
-					var upload = layui.upload;
+			layui.use(['laydate','form','layer','upload'], function() {
+				$ = layui.jquery;
+				var form = layui.form;
+				var layer = layui.layer;
+				var laydate = layui.laydate;
+				var upload = layui.upload;
 
-					//监听提交
-					form.on('submit(save)', function(data){
-						if($("#tids").length>0){
-							var tids_str = tids_obj.getValue('valueStr');
-							if(tids_str!=''){
-							data.field.tids = ','+tids_str+',';
+				//监听提交
+				form.on('submit(save)', function(data) {
+					if ($("#tids").length > 0) {
+						var tids_str = tids_obj.getValue('valueStr');
+						if (tids_str !== '') {
+							data.field.tids = ',' + tids_str + ',';
 						}
 					}
-
-					$.post("{fun U('editarticle')}",data.field,function(r){
+					$.post("{fun U('editarticle')}", data.field, function(r) {
 						localStorage.setItem('cachedata', '');
 						var r = JSON.parse(r);
-						if(r.code==0){
+						if (r.code == 0) {
 							layer.confirm(r.msg, {
 								btn: ['{fun NEXTLANG("返回列表")}','{fun NEXTLANG("取消")}'] //按钮
 							}, function(){
 								// 获得frame索引
-								{if($webconf['admintpl']=='tpl')}
-								window.location.href="{fun U('Article/articlelist')}";
+								{if($webconf['admintpl'] === 'tpl')}
+								window.location.href = "{fun U('Article/articlelist')}";
 								{else}
 								parent.location.reload();
 								{/if}
@@ -158,29 +158,30 @@
 								//
 							});
 						} else {
-							layer.alert(r.msg, {icon: 5});
+							layer.alert(r.msg, { icon: 5 });
 						}
 					});
 					return false;
 				});
 
-				get_fields({$data['tid']},{$data['id']});
-				get_fields_ext({$data['tid']},{$data['id']});
+				get_fields({$data['tid']}, {$data['id']});
+				get_fields_ext({$data['tid']}, {$data['id']});
 
-				form.on('select(tid)', function(data){
+				form.on('select(tid)', function(data) {
 					var alldata = form.val("nextform");
 					localStorage.setItem('cachedata', JSON.stringify(alldata));
-					get_fields(data.value,{$data['id']}); 
-					get_fields_ext(data.value,{$data['id']});
+					get_fields(data.value, {$data['id']}); 
+					get_fields_ext(data.value, {$data['id']});
 				});
 
-				$("#resetdata").click(function(){
+				$("#resetdata").click(function() {
 					var alldata = localStorage.getItem('cachedata');
-					if(alldata!=''){
-						form.val("nextform",JSON.parse(alldata));
+					if(alldata !== '') {
+						form.val("nextform", JSON.parse(alldata));
 					}
 				});
 			});
 		</script>
+
 	</body>
 </html>
